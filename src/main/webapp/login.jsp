@@ -4,11 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Welcom Page</title>
+<title>Login page</title>
 </head>
 <body>
-	<h1>Welcome</h1>
-	<a href="login.jsp">Login</a>
-	<a href="signup.jsp">Sign Up</a>
+	Login
 </body>
 </html>
