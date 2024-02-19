@@ -14,6 +14,9 @@
 		<input type="password" id="password" name="password" required><br>
 		<button type="submit">Login</button>
 	</form>
-	
+	<% String error = request.getParameter("error");
+		if (error != null && error.equals("1")){ %>
+			<p>Invalid</p>
+	<%} %>
 </body>
 </html>
