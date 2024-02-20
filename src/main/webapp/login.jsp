@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,15 +8,19 @@
 </head>
 <body>
 	<form action="LoginServlet" method="post">
-		<label for="username">Username : </label>
-		<input type="text" id="username" name="username" required><br>
-		<label for="password">Password : </label>
-		<input type="password" id="password" name="password" required><br>
+		<label for="username">Username : </label> <input type="text"
+			id="username" name="username" required><br> <label
+			for="password">Password : </label> <input type="password"
+			id="password" name="password" required><br>
 		<button type="submit">Login</button>
 	</form>
-	<% String error = request.getParameter("error");
-		if (error != null && error.equals("1")){ %>
-			<p>Invalid</p>
-	<%} %>
+	<%
+	String error = request.getParameter("error");
+	if (error != null && error.equals("1")) {
+	%>
+	<p>Invalid username or password</p>
+	<%
+	}
+	%>
 </body>
 </html>
