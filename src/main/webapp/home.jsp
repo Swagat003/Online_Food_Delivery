@@ -18,7 +18,9 @@
 	homepage
 	<p>
 		Welcom
+		<strong>
 		<%=username%>
+		</strong>
 	</p>
 	<br>
 	<a href="LogoutServlet">LOGOUT</a>

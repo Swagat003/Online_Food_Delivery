@@ -18,7 +18,16 @@
 	String error = request.getParameter("error");
 	if (error != null && error.equals("1")) {
 	%>
-	<p>Invalid username or password</p>
+	<p style="color: red;">Invalid username or password</p>
+	<%
+	}
+	%>
+	
+	<%
+	String rs = request.getParameter("registration");
+	if (rs != null && rs.equals("success")) {
+	%>
+	<p style="color: green;">Your registration is successful. Please login.</p>
 	<%
 	}
 	%>
