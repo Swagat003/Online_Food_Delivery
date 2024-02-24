@@ -13,7 +13,7 @@ import com.company.dao.*;
 
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    private static UserDao userdao = new UserDaoImp();
+    private static UserDaoImp userdao = new UserDaoImp();
 	
     public LoginServlet() {
         super();

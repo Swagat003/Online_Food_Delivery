@@ -15,9 +15,9 @@
 		// Get the username from the session
 		String username = (String) session1.getAttribute("username");
 	%>
-	homepage
+	home page
 	<p>
-		Welcom <strong> <%=username%>
+		Welcome <strong> <%=username%>
 		</strong>
 	</p>
 	<br>
@@ -29,7 +29,8 @@
 	List<FoodList> rs = food.displayFood();
 	for (FoodList f:rs){
 	%>
-		<h2><%=f.food_id %> <%=f.food_name %> <%=f.price %> <%=f.catagory %></h2>
+		<h2><%=f.food_name %> <%=f.price %></h2>
+		<h3><%=f.catagory %></h3><br>
 	<%
 	}
 	%>

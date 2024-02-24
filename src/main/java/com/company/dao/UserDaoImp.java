@@ -8,9 +8,8 @@ import java.sql.SQLException;
 //import com.company.model.User;
 import com.company.util.DBUtil;
 
-public class UserDaoImp implements UserDao {
+public class UserDaoImp  {
 
-	@Override
 	public boolean isValidUser(String username, String password) {
 		String query = "SELECT * FROM customer WHERE username = ? AND password = ?";
 		try (Connection connection = DBUtil.getConnection();
@@ -28,7 +27,6 @@ public class UserDaoImp implements UserDao {
 		}
 	}
 
-	@Override
 	public boolean addUser(User user) {
 		String query = "INSERT INTO customer (username, email, password) VALUES ( ? , ? , ? )";
 		try (Connection connection = DBUtil.getConnection();
@@ -50,5 +48,6 @@ public class UserDaoImp implements UserDao {
 			return false;
 		}
 	}
+	
 
 }

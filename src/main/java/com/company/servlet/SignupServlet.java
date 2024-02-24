@@ -10,13 +10,12 @@ import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 
 import com.company.dao.User;
-import com.company.dao.UserDao;
 import com.company.dao.UserDaoImp;
 
 
 public class SignupServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static UserDao userdao = new UserDaoImp();
+	private static UserDaoImp userdao = new UserDaoImp();
        
    
     public SignupServlet() {
