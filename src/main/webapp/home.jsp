@@ -17,12 +17,24 @@
 	%>
 	homepage
 	<p>
-		Welcom
-		<strong>
-		<%=username%>
+		Welcom <strong> <%=username%>
 		</strong>
 	</p>
 	<br>
+	
+	<%@ page import = "com.company.dao.FoodDao, com.company.dao.FoodList , java.util.ArrayList, java.util.List" %>
+	
+	<% 
+	FoodDao food = new FoodDao();
+	List<FoodList> rs = food.displayFood();
+	for (FoodList f:rs){
+	%>
+		<h2><%=f.food_id %> <%=f.food_name %> <%=f.price %> <%=f.catagory %></h2>
+	<%
+	}
+	%>
+	
+	
 	<a href="LogoutServlet">LOGOUT</a>
 	<%
 	} else {

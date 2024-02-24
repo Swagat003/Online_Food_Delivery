@@ -1,0 +1,181 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+#bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("../images/BG.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size:cover;
+    z-index: -1;
+}
+
+#bg::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100dvh;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black */
+    z-index: -1;
+    opacity: 1;
+}
+/* #top::before
+{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100vh;
+    background: url("../image/bg.jpg") no-repeat center center/cover;
+    opacity: 0.5;
+} */
+
+#Welcome_page {
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    background-color: transparent; /* Make the background transparent */
+    color: white;
+    position: relative; /* Make sure the container is positioned relative for z-index to work */
+    z-index: 1; /* Ensure the content is above the background */
+}
+
+nav{
+    width: 100%;
+    height: 80px;
+    display:flex;
+    justify-content: space-between;
+    z-index: 1;
+}
+#logo{
+    width: 250px;
+    height: 100%;
+    display: flex; /* Arrange in a row */
+    justify-content: center;
+    align-items: center;
+    margin-left: -35px;
+    font-family: "Barlow", sans-serif ;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 23px;
+    cursor: pointer;
+}
+#logo h1{
+    margin-left: -40px;
+    color: white;
+}
+#login_singup{
+    width: 400px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-right: -65px;
+    margin-top: 12px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    font-weight: bold;
+
+    
+}
+
+#login{
+    width: 95px;
+    height: 45px;
+    background-color: #E44E3F;
+    border-radius: 50px;
+    padding: 10px 10px;
+    cursor: pointer;
+    font-size: 15px;
+    border: none;
+    transition: 3s;
+    color: white;
+    font-family: "Basic", sans-serif;
+    font-weight: 500px;
+    font-style: normal;
+    opacity: 1;
+}
+#login:hover{
+    border: 2px solid transparent;
+}
+#signup{
+    width: 95px;
+    height: 45px;
+    background-color: white;
+    border-radius: 50px;
+    padding: 10px 10px;
+    cursor: pointer;
+    font-size: 15px;
+    border: none;
+    transition: 3s;
+    font-family: "Basic", sans-serif;
+    font-weight: 500px;
+    font-style: normal;
+    opacity: 1;
+}
+#signup:hover{
+    border: 2px solid transparent;
+}
+#Text{
+    width: 100vw;
+    height: 500px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+#Text h1{
+    font-size: 80px;
+    font-family: "Barlow", sans-serif;
+    font-weight: 1000;
+    font-style: italic;
+    width: 500px;
+    margin-top: -30px;
+}
+#H{
+    margin-left: 70px;
+
+}
+#Text h2{
+    margin-left: 84px;
+    font-size: 30px;
+    font-family: "Barlow", sans-serif;
+    font-weight: 300px;
+    margin-top: -20px;
+}
+#Text h3{
+    margin-left: 135px;
+    font-size: 30px;
+    font-family: "Barlow", sans-serif;
+    font-weight: 410px;
+    margin-top: -10px;
+}
+
+@media only screen and (max-width: 768px) {
+    /* Tablet styles */
+    #bg {
+        background-size: cover;
+    }
+}
+
+@media only screen and (max-width: 350px) {
+    /* Mobile styles */
+    #Container{
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+    }
+    #bg {
+        background-size: contain;
+    }
+}
