@@ -1,10 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ page import = "com.company.dao.* , java.util.ArrayList, java.util.List" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link rel="stylesheet" href="css/home.css">
+
 </head>
 <body>
 	<%
@@ -21,20 +26,28 @@
 		</strong>
 	</p>
 	<br>
-	
-	<%@ page import = "com.company.dao.FoodDao, com.company.dao.FoodList , java.util.ArrayList, java.util.List" %>
-	
+	 <input type='text' id="searchField" > <button id="searchBtn">search</button><br><br>
+	<div>
+		<button class="catagoryBtn" data-value="pizza" data-selected="0">Pizza</button>
+		<button class="catagoryBtn" data-value="burger" data-selected="0">Burger</button>
+		<button class="catagoryBtn" data-value="biriyani" data-selected="0">Biriyani</button>
+	</div>
+	<div id='food-container'>
 	<% 
 	FoodDao food = new FoodDao();
-	List<FoodList> rs = food.displayFood();
+	List<FoodList> rs = food.displayFood();;
+
 	for (FoodList f:rs){
 	%>
-		<h2><%=f.food_name %> <%=f.price %></h2>
+	<div class='food-item'>
+		<h2><%=f.food_name %><br> <%=f.price %></h2>
 		<h3><%=f.catagory %></h3><br>
+	</div>
 	<%
 	}
 	%>
 	
+	</div>
 	
 	<a href="LogoutServlet">LOGOUT</a>
 	<%
@@ -43,5 +56,6 @@
 	response.sendRedirect("login.jsp");
 	}
 	%>
+	<script type="text/javascript" src="js/home.js"></script>
 </body>
 </html>

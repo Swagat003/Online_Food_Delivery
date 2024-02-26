@@ -1,0 +1,16 @@
+@charset "UTF-8";
+
+#food-container{
+	display:flex;
+	flex-wrap:wrap;
+	padding:10px;
+	gap:5px;
+}
+
+.food-item{
+	background-color:yellow;
+	width:250px;
+	border:1px solid red;
+	border-radius:20px;
+	padding:5px;
+}
