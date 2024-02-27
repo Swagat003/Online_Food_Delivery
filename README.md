@@ -11,7 +11,7 @@
  * JS
 
 Server used:
-Apache Tomcate server 10.1.15
+* Apache Tomcate server 10.1.15
 
 DataBase used:
 * MySQL
