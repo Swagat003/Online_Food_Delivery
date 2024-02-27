@@ -2,7 +2,7 @@
  Online Food Delivery System using JSP and MySQL JDBC.
  Apache Tomcat server 10.1.15
 
- Technology used:
+ ## Technology used:
  * JSP
  * Servlet
  * JDBC
@@ -10,8 +10,8 @@
  * CSS
  * JS
 
-Server used:
+## Server used:
 * Apache Tomcate server 10.1.15
 
-DataBase used:
+## DataBase used:
 * MySQL
