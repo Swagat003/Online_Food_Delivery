@@ -58,5 +58,32 @@ public class FoodDao {
 			return foodList;
 		}
 	}
+
+	public List<FoodList> searchFood(String searchedValue) throws SQLException {
+		String query = "SELECT * FROM food WHERE food_name = ? OR catagory = ? OR price = ?";
+		try (Connection connection = DBUtil.getConnection();
+				PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+			
+			preparedStatement.setString(1, searchedValue);
+			preparedStatement.setString(2, searchedValue);
+			preparedStatement.setString(3, searchedValue);
+
+			ResultSet resultSet = preparedStatement.executeQuery();
+						
+			List<FoodList> foodList = new ArrayList<FoodList>();
+			
+			while(resultSet.next()) {
+				FoodList temp = new FoodList();
+				temp.food_id= resultSet.getInt(1);
+				temp.food_name= resultSet.getString(2);
+				temp.price= resultSet.getDouble(3);
+				temp.catagory= resultSet.getString(4);
+				
+				foodList.add(temp);
+			}
+			
+			return foodList;
+		}
+	}
 	
 }

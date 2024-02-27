@@ -26,11 +26,11 @@
 		</strong>
 	</p>
 	<br>
-	 <input type='text' id="searchField" > <button id="searchBtn">search</button><br><br>
+	 <input type='text' id="searchField" placeholder="Search your food..."> <button id="searchBtn">search</button><br><br>
 	<div>
-		<button class="catagoryBtn" data-value="pizza" data-selected="0">Pizza</button>
-		<button class="catagoryBtn" data-value="burger" data-selected="0">Burger</button>
-		<button class="catagoryBtn" data-value="biriyani" data-selected="0">Biriyani</button>
+		<button class="catagoryBtn" data-value="pizza" data-selected="false">Pizza</button>
+		<button class="catagoryBtn" data-value="burger" data-selected="false">Burger</button>
+		<button class="catagoryBtn" data-value="biriyani" data-selected="false">Biriyani</button>
 	</div>
 	<div id='food-container'>
 	<% 

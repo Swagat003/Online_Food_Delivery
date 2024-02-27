@@ -28,11 +28,15 @@ public class HomeServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
-			String catagoryData = request.getParameter("value");
-			String selected = request.getParameter("selected");
+			String data = request.getParameter("value");
+			String isSelected = request.getParameter("selected");
+			System.out.println(isSelected);
+			System.out.println(data);
 			List<FoodList> foods=new ArrayList<FoodList>();
-			if(selected.equals("0")) {				
-				foods = fooddao.displayFoodByCatagory(catagoryData);
+			if(isSelected.equals("false")) {				
+				foods = fooddao.displayFoodByCatagory(data);
+			}else if(isSelected.equals("searched")) {				
+				foods = fooddao.searchFood(data);
 			}else {
 				foods = fooddao.displayFood();
 			}
