@@ -5,12 +5,20 @@
 $(document).ready(function() {
 	$(".catagoryBtn").click(function(e) {
 		e.preventDefault(); // Prevent default form submission behavior
+		let allBtn = document.querySelectorAll(".catagoryBtn");
 		var inputValue = $(this).data("value");
 		var inputSelected = $(this).data("selected");
+		for(const btn of allBtn){
+			btn.classList.remove("selected");
+			btn.dataset.selected = 'false';
+		}
+		$(this).addClass('selected');
 		if (inputSelected == 'false') {
 			$(this).data('selected', 'true');
+			$(this).addClass('selected');
 		} else {
 			$(this).data('selected', 'false');
+			$(this).removeClass('selected');
 		}
 		$.ajax({
 			url: "HomeServlet", // Servlet mapping URL
@@ -22,10 +30,8 @@ $(document).ready(function() {
 			error: function(xhr, status, error) {
 				console.error("Error running function: ", error);
 			}
-		});
-
-		// Toggle the selected class on the button
-		$(this).toggleClass('selected');
+		});	
+		$(this).classList.add('selected');	
 	});
 	
 	$("#searchBtn").click(function(e) {

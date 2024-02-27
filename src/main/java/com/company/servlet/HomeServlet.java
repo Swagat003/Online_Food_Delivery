@@ -47,7 +47,7 @@ public class HomeServlet extends HttpServlet {
 				String price = String.valueOf(f.price);
 				String catagory = String.valueOf(f.catagory);
 				
-				String div = "<div class='food-item'><h2>"+name+"<br> "+price+"</h2><h3>"+catagory+"</h3><br></div>";
+				String div = "<div class='food-item' data-food_id='"+id+"'><h2>"+name+"<br> "+price+"</h2><h3>"+catagory+"</h3><br></div>";
 				htmlBlock += div ;
 			}
 			response.setContentType("text/html");
