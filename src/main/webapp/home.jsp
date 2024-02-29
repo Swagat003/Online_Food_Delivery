@@ -41,7 +41,7 @@
 	%>
 	<div class='food-item'>
 		<h2><%=f.food_name %><br> <%=f.price %></h2>
-		<h3><%=f.catagory %></h3><br>
+		<h3><%=f.catagory %> <button id='addBtn'>Add</button></h3>
 	</div>
 	<%
 	}

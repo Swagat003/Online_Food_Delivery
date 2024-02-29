@@ -18,3 +18,8 @@
 .selected{
 	background-color:orange;
 }
+
+#addBtn{
+	background-color:red;
+	color:white;
+}

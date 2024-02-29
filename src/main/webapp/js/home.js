@@ -12,6 +12,7 @@ $(document).ready(function() {
 			btn.classList.remove("selected");
 			btn.dataset.selected = 'false';
 		}
+		$(this).data("selected", inputSelected);
 		$(this).addClass('selected');
 		if (inputSelected == 'false') {
 			$(this).data('selected', 'true');
