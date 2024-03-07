@@ -3,8 +3,7 @@
  Apache Tomcat server 10.1.15
 
  ## Technology used:
- * JSP
- * Servlet
+ * JAVA (JSP , Servlet)
  * JDBC
  * AJAX
  * CSS
