@@ -81,7 +81,9 @@ nav {
 #form_body{
     display: flex;
     width: 100dvw;
+    height: calc(100dvh - 80px);
     justify-content: center;
+    align-items: center;
 }
 #Login_form {
     position: absolute;
@@ -91,7 +93,7 @@ nav {
     background-position: center;
     background-size: cover;
     /* margin-left: 425px; */
-    margin-top: 17px;
+    margin-top: -70px;
     border: none;
     border-radius: 7%;
     display: flex;
@@ -215,6 +217,16 @@ input::placeholder {
     justify-content: center;
     margin-top: 20px;
     cursor: pointer;
+    
+    width: 300px;  
+    padding: 0 !important;
+    height: 45px;
+    border-radius: 25px;
+    border: 2px solid transparent;
+    margin-top: 20px;
+    outline: none;
+    color: white;
+    background-color: #E44E3F;
 }
 #msg_box{
     position: relative;
