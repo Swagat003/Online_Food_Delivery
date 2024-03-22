@@ -41,11 +41,15 @@
 	%>
 	<div class='food-item'>
 		<h2><%=f.food_name %><br> <%=f.price %></h2>
-		<h3><%=f.catagory %> <button id='addBtn'>Add</button></h3>
+		<h3><%=f.catagory %> <a href='AddToCartServlet?id=<%=f.food_id%>'> <button class='addBtn'>Add to cart</button></a></h3>
 	</div>
 	<%
 	}
 	%>
+	
+	</div>
+	
+	<div id="cart">
 	
 	</div>
 	

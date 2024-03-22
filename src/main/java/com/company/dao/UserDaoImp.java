@@ -10,8 +10,9 @@ import com.company.util.DBUtil;
 
 public class UserDaoImp  {
 
-	public boolean isValidUser(String username, String password) {
+	public User isValidUser(String username, String password) {
 		String query = "SELECT * FROM customer WHERE username = ? AND password = ?";
+		User user = null;
 		try (Connection connection = DBUtil.getConnection();
 				PreparedStatement preparedStatement = connection.prepareStatement(query)) {
 
@@ -19,12 +20,17 @@ public class UserDaoImp  {
 			preparedStatement.setString(2, password);
 
 			ResultSet resultSet = preparedStatement.executeQuery();
-
-			return resultSet.next();
+			if(resultSet.next()) {
+				user = new User();
+				user.setUsername(resultSet.getString("username"));
+				user.setEmail(resultSet.getString("email"));
+			}
+//			return resultSet.next();
 		} catch (SQLException e) {
 			e.printStackTrace();
-			return false;
+//			return false;
 		}
+		return user;
 	}
 
 	public boolean addUser(User user) {

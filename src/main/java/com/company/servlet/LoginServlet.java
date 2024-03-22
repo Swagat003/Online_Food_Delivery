@@ -24,10 +24,14 @@ public class LoginServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
-		
-		if (userdao.isValidUser(username,password)) {
+		User logedUser = userdao.isValidUser(username,password);
+		if (logedUser!=null) {
 			HttpSession session = request.getSession();
 			session.setAttribute("username", username);
+			System.out.println(logedUser.getUsername());
+			System.out.println(logedUser.getEmail());
+			System.out.println(logedUser.getPassword());
+
 			response.sendRedirect("home.jsp");
 		}
 		else {
