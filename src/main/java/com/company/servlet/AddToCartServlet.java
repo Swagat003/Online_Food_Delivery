@@ -29,6 +29,7 @@ public class AddToCartServlet extends HttpServlet {
 		try(PrintWriter out = response.getWriter()){
 			ArrayList<Cart> cartlist = new ArrayList<Cart>();
 			int id = Integer.parseInt(request.getParameter("id"));
+			System.out.println(id);
 			Cart temp = new Cart();
 			temp.food_id=id;
 			temp.setQuantity(1);
@@ -41,6 +42,7 @@ public class AddToCartServlet extends HttpServlet {
 				session.setAttribute("cart-list", cartlist);
 				out.println("session created and added");
 				out.println(temp.food_id);
+				System.out.println(temp.food_id);
 			}else {
 				cartlist=cart_list;
 				boolean exist = false;
@@ -57,6 +59,7 @@ public class AddToCartServlet extends HttpServlet {
 			}
 			for (Cart ct:cart_list) {
 				out.println(ct.food_id);
+				System.out.println(ct.food_id);
 			}
 		}
 	}

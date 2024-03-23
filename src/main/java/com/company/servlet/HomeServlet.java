@@ -47,7 +47,15 @@ public class HomeServlet extends HttpServlet {
 				String price = String.valueOf(f.price);
 				String catagory = String.valueOf(f.catagory);
 				
-				String div = "<div class='food-item' data-food_id='"+id+"'><h2>"+name+"<br> "+price+"</h2><h3>"+catagory+" <a href='AddToCartServlet?id="+id+"'> <button class='addBtn'>Add to cart</button></a></h3></div>";
+				String div = "<div class='food-item'>"
+						+ "<h2>"+name+"<br> "
+						+price+"</h2>"
+								+ "<h3>"+catagory+""
+										+"<a href='AddToCartServlet?id="+id+"'>"
+										+ "<button id='addBtn' data-food_id='"+id+"'>Add to cart</button>"
+										+"</a>"
+								+ "</h3>"
+						+ "</div>";
 				htmlBlock += div ;
 			}
 			response.setContentType("text/html");
