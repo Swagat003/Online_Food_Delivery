@@ -46,16 +46,21 @@ public class HomeServlet extends HttpServlet {
 				String name = String.valueOf(f.food_name);
 				String price = String.valueOf(f.price);
 				String catagory = String.valueOf(f.catagory);
-				
-				String div = "<div class='food-item'>"
-						+ "<h2>"+name+"<br> "
-						+price+"</h2>"
-								+ "<h3>"+catagory+""
-										+"<a href='AddToCartServlet?id="+id+"'>"
-										+ "<button id='addBtn' data-food_id='"+id+"'>Add to cart</button>"
-										+"</a>"
-								+ "</h3>"
-						+ "</div>";
+			
+				String div = "<div class=\"food-card\">\r\n"
+						+ "                    <img class=\"food-card-img\" src=\"images/food_images/"+id+".png\" alt=\"ERROR\">\r\n"
+						+ "                    <div class=\"food-card-text\">\r\n"
+						+ "                        <div class=\"food-card-text-left\">\r\n"
+						+ "                            <p class=\"food-card-heading\">"+name+"</p>\r\n"
+						+ "                            <p class=\"food-card-price\"> &#8377;"+price+"/- <span>&#8377; "+(Double.parseDouble(price)+119)+"/-</span></p>\r\n"
+						+ "                        </div>\r\n"
+						+ "                        <div class=\"food-card-text-right\">\r\n"
+						+ "                        	<a href='AddToCartServlet?id="+id+"'>\r\n"
+						+ "                            	<button class=\"food-card-button\" data-food_id='"+id+"'>ADD</button>\r\n"
+						+ "                            </a>\r\n"
+						+ "                        </div>\r\n"
+						+ "                    </div>\r\n"
+						+ "                </div>";
 				htmlBlock += div ;
 			}
 			response.setContentType("text/html");

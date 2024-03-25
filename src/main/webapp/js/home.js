@@ -1,25 +1,42 @@
 /**
  * 
  */
+document.getElementById('arrow-down').addEventListener('click', function(e) {
+    e.stopPropagation();
+    var logoutDiv = document.getElementById('logout');
+    if (logoutDiv.style.display === 'none' || logoutDiv.style.display === '') {
+        logoutDiv.style.display = 'block';
+    } else {
+        logoutDiv.style.display = 'none';
+    }
+});
+document.getElementById('Menu').addEventListener('mouseover', function() {
+    document.getElementById('header').classList.add('show-before');
+});
+
+document.getElementById('Menu').addEventListener('mouseout', function() {
+    document.getElementById('header').classList.remove('show-before');
+});
+
 
 $(document).ready(function() {
-	$(".catagoryBtn").click(function(e) {
+	$(".catagory-card").click(function(e) {
 		e.preventDefault(); // Prevent default form submission behavior
-		let allBtn = document.querySelectorAll(".catagoryBtn");
+		let isContain = $(this).hasClass("selected");
 		var inputValue = $(this).data("value");
 		var inputSelected = $(this).data("selected");
-		for(const btn of allBtn){
-			btn.classList.remove("selected");
-			btn.dataset.selected = 'false';
-		}
-		$(this).data("selected", inputSelected);
-		$(this).addClass('selected');
-		if (inputSelected == 'false') {
-			$(this).data('selected', 'true');
-			$(this).addClass('selected');
-		} else {
+		
+		$(".catagory-card").each(function(){
 			$(this).data('selected', 'false');
 			$(this).removeClass('selected');
+		});
+		
+		if (isContain) {
+			$(this).data('selected', 'false');
+			$(this).removeClass('selected');
+		} else {
+			$(this).data('selected', 'true');
+			$(this).addClass('selected');
 		}
 		$.ajax({
 			url: "HomeServlet", // Servlet mapping URL
@@ -32,12 +49,15 @@ $(document).ready(function() {
 				console.error("Error running function: ", error);
 			}
 		});	
-		$(this).classList.add('selected');	
 	});
 	
 	$("#searchBtn").click(function(e) {
 		e.preventDefault(); // Prevent default form submission behavior
 		var inputValue = $("#searchField").val();
+		$(".catagory-card").each(function(){
+			$(this).data('selected', 'false');
+			$(this).removeClass('selected');
+		});
 		$.ajax({
 			url: "HomeServlet", // Servlet mapping URL
 			type: "GET",
