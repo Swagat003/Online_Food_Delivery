@@ -29,7 +29,7 @@ public class AddToCartServlet extends HttpServlet {
 		try(PrintWriter out = response.getWriter()){
 			ArrayList<Cart> cartlist = new ArrayList<Cart>();
 			int id = Integer.parseInt(request.getParameter("id"));
-			System.out.println(id);
+//			System.out.println(id);
 			Cart temp = new Cart();
 			temp.food_id=id;
 			temp.setQuantity(1);
@@ -40,27 +40,29 @@ public class AddToCartServlet extends HttpServlet {
 			if (cart_list == null) {
 				cartlist.add(temp);
 				session.setAttribute("cart-list", cartlist);
-				out.println("session created and added");
-				out.println(temp.food_id);
-				System.out.println(temp.food_id);
+//				out.println("session created and added");
+//				out.println(temp.food_id);
+//				System.out.println(temp.food_id);
+				response.sendRedirect("home.jsp");
 			}else {
 				cartlist=cart_list;
 				boolean exist = false;
 				for(Cart c:cartlist) {
 					if(c.food_id==id) {
 						exist=true;
-						out.println("Product exist");
+						out.println("<h3 style='color:red; text-align:center'>Item already exist in cart. <a href='home.jsp'> Go back..</a></h3>");
 					}
 				}
 				if(!exist){
 					cartlist.add(temp);
-					out.println("product added");
+					response.sendRedirect("home.jsp");
+//					out.println("product added");
 				}
 			}
-			for (Cart ct:cart_list) {
-				out.println(ct.food_id);
-				System.out.println(ct.food_id);
-			}
+//			for (Cart ct:cart_list) {
+//				out.println(ct.food_id);
+//				System.out.println(ct.food_id);
+//			}
 		}
 	}
 

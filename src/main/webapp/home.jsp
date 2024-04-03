@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page import = "com.company.dao.* , java.util.ArrayList, java.util.List" %>
+<%@page import="com.company.dao.*"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,11 +17,19 @@
 <body>
 	<%
 	HttpSession session1 = request.getSession(false);
-
+	
 	// Check if the session is not null and the username attribute is set
 	if (session1 != null && session1.getAttribute("username") != null) {
 		// Get the username from the session
 		String username = (String) session1.getAttribute("username");
+		User auth = (User) request.getSession().getAttribute("auth");
+		if (auth != null) {
+		    request.setAttribute("person", auth);
+		}
+		ArrayList<Cart> cart_list = (ArrayList<Cart>) session.getAttribute("cart-list");
+		if (cart_list != null) {
+			request.setAttribute("cart_list", cart_list);
+		}
 	%>
 	<div id="header">
         <header>
