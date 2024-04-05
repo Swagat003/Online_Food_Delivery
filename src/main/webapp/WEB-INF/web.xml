@@ -59,4 +59,24 @@
     <servlet-name>AddToCartServlet</servlet-name>
     <url-pattern>/AddToCartServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>RemoveFromCartServlet</display-name>
+    <servlet-name>RemoveFromCartServlet</servlet-name>
+    <servlet-class>com.company.servlet.RemoveFromCartServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RemoveFromCartServlet</servlet-name>
+    <url-pattern>/RemoveFromCartServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>QuantityIncDecServlet</display-name>
+    <servlet-name>QuantityIncDecServlet</servlet-name>
+    <servlet-class>com.company.servlet.QuantityIncDecServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>QuantityIncDecServlet</servlet-name>
+    <url-pattern>/QuantityIncDecServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

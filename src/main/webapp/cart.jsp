@@ -75,12 +75,12 @@ font-size: 25px;
 					<td>
 						<input type="hidden" name="id" value="<%= c.food_id%>" class="form-input">
 							<div class="form-group d-flex justify-content-between">
-								<a class="btn bnt-sm btn-incre" href="quantity-inc-dec?action=inc&id=<%=c.food_id%>"><i class="fas fa-plus-square"></i></a> 
+								<a class="btn bnt-sm btn-incre" href="QuantityIncDecServlet?action=inc&id=<%=c.food_id%>"><i class="fas fa-plus-square"></i></a> 
 								<input type="text" name="quantity" class="form-control"  value="<%=c.getQuantity()%>" readonly> 
-								<a class="btn btn-sm btn-decre" href="quantity-inc-dec?action=dec&id=<%=c.food_id%>"><i class="fas fa-minus-square"></i></a>
+								<a class="btn btn-sm btn-decre" href="QuantityIncDecServlet?action=dec&id=<%=c.food_id%>"><i class="fas fa-minus-square"></i></a>
 							</div>
 					</td>
-					<td><a href="remove-from-cart?id=<%=c.food_id %>" class="btn btn-sm btn-danger">Remove</a></td>
+					<td><a href="RemoveFromCartServlet?id=<%=c.food_id %>" class="btn btn-sm btn-danger">Remove</a></td>
 				</tr>
 
 				<%
