@@ -10,22 +10,33 @@ request.setAttribute("dcf", dcf);
 User auth = (User) request.getSession().getAttribute("auth");
 if (auth != null) {
     request.setAttribute("person", auth);
-}
+
 ArrayList<Cart> cart_list = (ArrayList<Cart>) session.getAttribute("cart-list");
 List<Cart> cartProduct = null;
 if (cart_list != null) {
 	CartDao pDao = new CartDao();
 	cartProduct = pDao.getCartProducts(cart_list);
+	double sum = 0;
+	if (cartProduct.size() > 0) {
+		for (Cart item : cartProduct) {
+			sum += item.price;
+		}
+	}	
 	//double total = pDao.getTotalCartPrice(cart_list);
-	double total = 250.0;
+	double total = sum;
 	request.setAttribute("total",total );
 	request.setAttribute("cart_list", cart_list);
 }
+
 %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 <title>Cart</title>
 <style type="text/css">
 
@@ -41,7 +52,7 @@ font-size: 25px;
 <body>
 
 	<div class="container my-3">
-		<div class="d-flex py-3"><h3>Total Price: $ ${(total>0)?dcf.format(total):0} </h3> <a class="mx-3 btn btn-primary" href="cart-check-out">Check Out</a></div>
+		<div class="d-flex py-3"><h3>Total Price: &#8377; ${total} </h3> <a class="mx-3 btn btn-primary" href="cart-check-out">Check Out</a></div>
 		<table class="table table-light">
 			<thead>
 				<tr>
@@ -62,15 +73,12 @@ font-size: 25px;
 					<td><%=c.catagory%></td>
 					<td><%= dcf.format(c.price)%></td>
 					<td>
-						<form action="order-now" method="post" class="form-inline">
 						<input type="hidden" name="id" value="<%= c.food_id%>" class="form-input">
 							<div class="form-group d-flex justify-content-between">
 								<a class="btn bnt-sm btn-incre" href="quantity-inc-dec?action=inc&id=<%=c.food_id%>"><i class="fas fa-plus-square"></i></a> 
 								<input type="text" name="quantity" class="form-control"  value="<%=c.getQuantity()%>" readonly> 
 								<a class="btn btn-sm btn-decre" href="quantity-inc-dec?action=dec&id=<%=c.food_id%>"><i class="fas fa-minus-square"></i></a>
 							</div>
-							<button type="submit" class="btn btn-primary btn-sm">Buy</button>
-						</form>
 					</td>
 					<td><a href="remove-from-cart?id=<%=c.food_id %>" class="btn btn-sm btn-danger">Remove</a></td>
 				</tr>
@@ -80,6 +88,11 @@ font-size: 25px;
 			</tbody>
 		</table>
 	</div>
-
+	 <%
+	} else {
+	// Redirect to the login page if the session is not valid
+	response.sendRedirect("login.jsp");
+	}
+	%>
 </body>
 </html>

@@ -62,7 +62,7 @@
                     <i class="ri-account-circle-line"></i><%=username%><i id="arrow-down" class="ri-arrow-down-s-fill"></i>
                     <div id="logout"><a href="LogoutServlet">LOGOUT</a></div>
                 </h1>
-                <h1 id="Cart"><i class="ri-shopping-cart-line"></i>Cart</h1>
+                <h1 id="Cart"><i class="ri-shopping-cart-line"></i><a href="cart.jsp">Cart</a></h1>
             </nav>
         </header>
     </div>
