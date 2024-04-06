@@ -23,7 +23,13 @@ if (cart_list != null) {
 		}
 	}	
 	//double total = pDao.getTotalCartPrice(cart_list);
-	double total = sum;
+	double totalItem = Double.parseDouble(dcf.format(sum));
+	double platformFess = 19.0;
+	double gst = Double.parseDouble(dcf.format((totalItem + platformFess)*0.18));
+	double total = Double.parseDouble(dcf.format(totalItem + platformFess + gst));
+	request.setAttribute("totalItem",totalItem );
+	request.setAttribute("platformFess",platformFess );
+	request.setAttribute("gst",gst );
 	request.setAttribute("total",total );
 	request.setAttribute("cart_list", cart_list);
 }
@@ -52,7 +58,22 @@ font-size: 25px;
 <body>
 
 	<div class="container my-3">
-		<div class="d-flex py-3"><h3>Total Price: &#8377; ${total} </h3> <a class="mx-3 btn btn-primary" href="cart-check-out">Check Out</a></div>
+		<%
+			if (cart_list != null && cart_list.size()>0) {
+		%>
+		<div class="d-flex py-3">
+			<h3>Item Price: &#8377; ${totalItem} </h3>
+		</div>
+		<div class="d-flex py-3">
+			<h3>Platform Fees: &#8377; ${platformFess} </h3>
+		</div>
+		<div class="d-flex py-3">
+			<h3>Gst: &#8377; ${gst} </h3>
+		</div>
+		<div class="d-flex py-3">
+			<h3>Total Price: &#8377; ${total} </h3> 
+			<a class="mx-3 btn btn-primary" href="cart-check-out">Check Out</a>
+		</div>
 		<table class="table table-light">
 			<thead>
 				<tr>
@@ -65,7 +86,6 @@ font-size: 25px;
 			</thead>
 			<tbody>
 				<%
-				if (cart_list != null) {
 					for (Cart c : cartProduct) {
 				%>
 				<tr>
@@ -84,9 +104,14 @@ font-size: 25px;
 				</tr>
 
 				<%
-				}}%>
+				}%>
 			</tbody>
 		</table>
+		<%
+		}else{%>
+			<h1>Cart is Empty!</h1>
+		<%	
+		}%>
 	</div>
 	 <%
 	} else {
