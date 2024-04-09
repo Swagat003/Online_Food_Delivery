@@ -62,7 +62,17 @@
                     <i class="ri-account-circle-line"></i><%=username%><i id="arrow-down" class="ri-arrow-down-s-fill"></i>
                     <div id="logout"><a href="LogoutServlet">LOGOUT</a></div>
                 </h1>
-                <h1 id="Cart"><i class="ri-shopping-cart-line"></i><a href="cart.jsp">Cart</a></h1>
+                <h1 id="Cart"><i class="ri-shopping-cart-line"></i><a href="cart.jsp">Cart</a>
+                	<% 
+                	ArrayList<Cart> cart_list0 = (ArrayList<Cart>) session.getAttribute("cart-list");
+            		if (cart_list0 != null && cart_list0.size() > 0 ) {
+            			int noOfItemInCart = cart_list0.size();
+            			request.setAttribute("noOfItemInCart",noOfItemInCart);
+            		 %>
+    				<div id="cart-item-no">${noOfItemInCart}</div>
+					<% } %>
+
+                </h1> 
             </nav>
         </header>
     </div>

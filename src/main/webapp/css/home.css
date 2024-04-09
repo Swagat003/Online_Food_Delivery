@@ -203,6 +203,7 @@ nav {
     font-size: 18px;
     cursor: pointer;
     /* margin-top: 10px; */
+    align-items: center;
 }
 #Cart a{
 	text-decoration:none;
@@ -212,6 +213,22 @@ nav {
 #Cart i {
     margin-top: 3px;
     margin-right: 5px;
+}
+
+#cart-item-no{
+	background-color: #E44E3F;
+    color: white;
+    font-size: 14px;
+    padding: 1px 7px;
+    border-radius: 5px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 21px;
+    line-height: 14px;
+    margin: 0 5px;
+    font-weight: 700;
 }
 
 main{
@@ -298,6 +315,7 @@ hr{
     row-gap: 50px;
     column-gap: 20px;
     justify-items:left;
+    justify-content: center;
 }
 .food-card{
     display: flex;
@@ -349,7 +367,9 @@ hr{
     font-weight: 400;
     cursor: pointer;
 }
-
+.food-card-button:active{
+	background-color: #b71f10;
+}
 
 footer{
     display: grid;
