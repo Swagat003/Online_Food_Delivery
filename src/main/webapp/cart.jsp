@@ -80,6 +80,7 @@ if (session1 != null && session1.getAttribute("username") != null) {
 					for (Cart c : cartProduct) {
 				%>
                 <tr class="cart-list">
+                    <td class="cart-list-remove"><a href="RemoveFromCartServlet?id=<%=c.food_id %>" class=""><i class="ri-close-circle-line"></i></a></td>
                     <td class="cart-list-name"><%=c.food_name %></td>
                     <td>
                         <input type="hidden" name="id" value="<%= c.food_id%>" class="form-input">
@@ -90,7 +91,6 @@ if (session1 != null && session1.getAttribute("username") != null) {
                         </div>
                     </td>
                     <td class="cart-list-price">&#8377;<%= dcf.format(c.price)%>/-</td>
-                    <td class="cart-list-remove"><a href="RemoveFromCartServlet?id=<%=c.food_id %>" class=""><i class="ri-close-circle-line"></i></a></td>
                 </tr>
                 <%
 				}
