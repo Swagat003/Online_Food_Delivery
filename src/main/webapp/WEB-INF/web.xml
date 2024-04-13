@@ -79,4 +79,14 @@
     <servlet-name>QuantityIncDecServlet</servlet-name>
     <url-pattern>/QuantityIncDecServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>CheckOutServlet</display-name>
+    <servlet-name>CheckOutServlet</servlet-name>
+    <servlet-class>com.company.servlet.CheckOutServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CheckOutServlet</servlet-name>
+    <url-pattern>/CheckOutServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

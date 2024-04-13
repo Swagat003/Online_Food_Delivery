@@ -109,9 +109,11 @@ if (session1 != null && session1.getAttribute("username") != null) {
                 <h1 class="toPay">&#8377;${total}/-</h1>
             </div>
             <div id="pricing-btn">
+            <a href="CheckOutServlet?amount=${total}">
                 <button id="checkout">
                     PLACE ORDER
                 </button>
+            </a>
             </div>
         </div>
     </div>
