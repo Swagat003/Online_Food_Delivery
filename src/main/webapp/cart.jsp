@@ -167,6 +167,6 @@ if (session1 != null && session1.getAttribute("username") != null) {
             </div>
         </div>
     </footer>
-    <script src="js/Home.js"></script>
+    <script src="js/cart.js"></script>
 </body>
 </html>
